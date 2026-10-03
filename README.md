@@ -113,10 +113,17 @@ The second argument of the script is a gain factor (ffmpeg `volume`), default `4
   the TCP connection has been enough for the doorbell so far.
 - No doorbell-press detection here – this is talk only.
 
+## Video stream
+
+Settings and findings for a fast and stable G410 video stream in go2rtc (timestamps,
+audio tracks, start time, TCP vs. UDP): [`docs/stream.md`](docs/stream.md).
+
 ## Tools
 
 - `tools/klingel_varianten.py <ip>` – sends the same test tone in seven formats, one
   after the other, so you can check which ones your device plays.
+- `tools/klingel_probe.py <rtsp-url>` – measures the time to the first picture for
+  several ffmpeg input variants.
 - `tools/klingel_ton_lang.py [stream] [go2rtc-api]` – plays a 4 s tone through the
   complete path (go2rtc → script → doorbell).
 
