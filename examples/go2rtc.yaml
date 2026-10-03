@@ -1,0 +1,10 @@
+# Ausschnitt fuer /config/go2rtc.yaml (Home Assistant) bzw. die go2rtc-Konfiguration.
+# Platzhalter ersetzen: RTSP-Benutzer/-Passwort aus der Aqara-App, IP der Klingel.
+streams:
+  klingel_udp:
+    # 1. Quelle: Bild + Ton VON der Klingel (so wie bisher; hier nur ein einfaches Beispiel)
+    - rtsp://RTSP_USER:RTSP_PASS@192.168.1.50:8554/ch1
+    # 2. Quelle: Rueckkanal ZUR Klingel. go2rtc startet das Skript nur, wenn ein Client Mikrofon-Ton
+    #    schickt (WebRTC) oder per API ?dst=klingel_udp. Keine zweite RTSP-Sitzung zur Klingel.
+    #    Optional als 2. Argument der Lautstaerke-Faktor (Standard 4.0), z. B. "... 192.168.1.50 2.5#backchannel=1"
+    - exec:python3 /config/scripts/klingel_sprechen.py 192.168.1.50#backchannel=1
