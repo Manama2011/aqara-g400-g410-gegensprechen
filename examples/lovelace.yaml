@@ -1,0 +1,8 @@
+# 1) Ressource (Einstellungen -> Dashboards -> Ressourcen), Datei nach /config/www/ kopieren:
+#      URL: /local/klingel-sprechen-card.js   Typ: JavaScript-Modul
+# 2) Karte:
+type: custom:klingel-sprechen-card
+stream: klingel_udp      # Name des go2rtc-Streams
+name: Sprechen
+hoehe: 64                # px
+max_sekunden: 60         # Mikrofon geht spaetestens dann wieder aus
